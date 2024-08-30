@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>页脚模板</title>
+        <style>
+.footer {
+    background-color:rgba(255,255,255,0.9);
+    color:#333;
+    padding:40px 20px;
+    text-align:center;
+    font-size:14px;
+    border-top:5px solid #FFA500
+}
+a {
+    color:#3498db;
+}
+.footer-content {
+    margin-bottom:20px
+}
+.footer-content p {
+    margin:5px 0
+    color:#333;
+}
+.ad-section,.contact-info {
+    text-align:left;
+    margin:20px auto;
+    max-width:800px
+}
+.ad-section p {
+    margin:5px 0;
+    font-style:italic
+    color:#333;
+}
+.contact-info a {
+    margin:5px 0
+    color:#FFA500;
+}
+.footer-bottom {
+    font-size:12px;
+    color:#bbb
+}
+.custom-hr {
+    border:2px solid #4CAF50;
+    width:50%;
+    margin:20px auto
+}
+    </style>
+    </head>
+    <body>
+        <div class="footer">
+            <div class="footer-content">
+                <div class="ad-section">
+                    <h3>本服友商&gt;</h3>
+                </div>
+                <div class="contact-info">
+                    <p><strong><a href="https://www.rainyun.com/" style="color: #FFA500"><img src="http://craftblock.totalh.net/picture/rainyun.png" style="width:50px;margin-left:5px;margin-right:5px;vertical-align:middle;margin-bottom: 7px">新一代云服务提供商</a></strong></p>
+                </div>
+                <div class="ad-section">
+                    <hr>
+                    <h3>其他站点&gt;</h3>
+                </div>
+                <div class="contact-info">
+                    <p><strong>GitHub-<a href="https://github.com/CraftBlockht6x/Minecraft-CraftBlock-server_Bedrock" style="color: #FFA500">来自中国的Minecraft服务器！</a></strong></p>
+                </div>
+                <div class="ad-section">
+                    <hr>
+                    <h3>联系我们&gt;</h3>
+                </div>
+                <div class="contact-info">
+                    <p><strong>电子邮箱:<br><a href="mailto:CraftBlock-server@outlook.com" style="color: #FFA500">CraftBlock-server@outlook.com</a></strong></p>
+                    <p><strong>bilibili:<a href="https://space.bilibili.com/1074586668/" style="color: #FFA500">闲鱼茶酱呀</a></strong></p>
+                    <p><strong>GitHub:<a href="https://github.com/CraftBlockht6x/" style="color: #FFA500">闲鱼茶酱呀</a></strong></p>
+                    <hr>
+                </div>
+                <div class="footer-bottom">
+                    <p>网站已运行<span id="time"></span></p>
+                    <p>&copy; 2024-<span id="currentYear"></span> | CraftBlock服务器</p>
+                </div>
+            </div>
+        </div>
+        <script>
+  // 获取当前年份
+  const currentYear = new Date().getFullYear();
+  
+  // 将当前年份显示在页面上
+  document.getElementById('currentYear').textContent = currentYear;
+</script>
+        <script>
+function time() {
+    window.setTimeout("time()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth() + 1
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    
+    // 设置网站的建立时间
+    var t1 = Date.UTC(2024, 4, 2, 20, 45, 00)
+    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
+    var diff = t2 - t1
+    var diffYears = Math.floor(diff / years)
+    var diffDays = Math.floor((diff / days) - diffYears * 365)
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours)
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes)
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+        minutes) / seconds)
+        
+    // 将网站运行时间显示到页面上
+    document.getElementById("time").innerHTML = diffYears + "年" + diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒"
+}
+time()
+</script>
+    </body>
+</html>
